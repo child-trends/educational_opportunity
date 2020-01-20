@@ -19,38 +19,33 @@ A. Software for processing raw data (See source code for both R and Node package
 - R (https://cran.r-project.org/)
 - Node.js (https://nodejs.org/)
 
-B. Raw data inputs
-   - These data files are created by the code in the data preparation section:
-    1.	LEA_NAME.csv - School district names
-    2.	physical_schools.csv - Nearly 24k records containing school-level details
-    3.	census_tracts.csv - Census tract-level data containing life expectancy and other tract characteristics 
-    4.	ConfidenceIntervals.csv - Approximation of the confidence interval for the interactive scatter plot
+B. Raw data inputs. These data files are created by the code in the data preparation section:
+  1. LEA_NAME.csv - School district names
+  2. physical_schools.csv - Nearly 24k records containing school-level details
+  3. census_tracts.csv - Census tract-level data containing life expectancy and other tract characteristics 
+  4. ConfidenceIntervals.csv - Approximation of the confidence interval for the interactive scatter plot
 
 C. Data processing scripts and JSON data outputs
-    1.	import_process_export.R
-        - Process B1, B2, B3, and B4 to produce: 
-            1.	lea_names.json
-            2.	schools.json
-            3.	le.json
-            4.	ci.json
-  2. R script to pull place-level Shapefiles from Census and convert to GeoJSON
-     - 	get_lon_lat.js 
-  3. R script that uses GeoJSON to generate centroids of GeoJSON place data above
-    -Node.js
-  4. Produces:
-      -	city_centroids.json 
+  1. import_process_export.R - Process B.1, B.2, B.3, and B.4 to produce:
+      1. lea_names.json
+      2. schools.json
+      3. le.json
+      4. ci.json
+  2. make_geojson.R - Pull place-level shapefiles from Census and convert to GeoJSON
+  3. get_lon_lat.js  - Generate centroids from GeoJSON created by C.2 to produce:
+      1. city_centroids.json 
   
 D. External libraries for website front-end
-    1.	MapBox GL JS
-    - https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js
-    - https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css
-    2.	Vega JS (https://vega.github.io/vega/)
-    3.	D3.js (https://d3js.org/)
-    4.	 enter-view.js (https://github.com/russellgoldenberg/enter-view)
+  1. MapBox GL JS
+      1. https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js
+      2. https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css
+  2. Vega JS (https://vega.github.io/vega/)
+  3. D3.js (https://d3js.org/)
+  4. enter-view.js (https://github.com/russellgoldenberg/enter-view)
 
 E. JS source code for final construction of map and interactive scatter plot
-    1. data-import.js 
-        - Data retrieval and pre-processing for map
-        - Handles import of all JSON data sources: C1-C4
-    2. draw-map.js - Construction of MapBox map
-    3. draw-scatter.js - Construction of interactive scatter plot
+  1. data-import.js 
+    - Data retrieval and pre-processing for map
+    - Handles import of all JSON data sources: C.1.i, C.1.ii, C.1.iii, C.1.iv, and C.3.i
+  2. draw-map.js - Construction of Mapbox map
+  3. draw-scatter.js - Construction of interactive scatter plot
