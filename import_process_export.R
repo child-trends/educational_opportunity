@@ -1,5 +1,5 @@
-inputdir <- "/home/alec/Projects/DistrictAnalytics/child_trends/usaleep/website/build/data/"
-outputdir <- "/home/alec/Projects/DistrictAnalytics/child_trends/usaleep/website/data/"
+inputdir <- "/path/to/input/data/"
+outputdir <- "/path/to/output/data"
 
 library(dplyr)
 library(readr)
